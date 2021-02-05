@@ -48,11 +48,11 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.EmpoyedataGridView = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.Division = new System.Windows.Forms.ComboBox();
-            this.DateEmbauche = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DateEmbauche = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpoyedataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +73,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // 
             // Nom
             // 
-            this.Nom.Location = new System.Drawing.Point(180, 98);
+            this.Nom.Location = new System.Drawing.Point(180, 95);
             this.Nom.Name = "Nom";
             this.Nom.Size = new System.Drawing.Size(100, 20);
             this.Nom.TabIndex = 3;
@@ -90,7 +90,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(94, 132);
+            this.label3.Location = new System.Drawing.Point(94, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 4;
@@ -124,13 +124,14 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // OuiRadio
             // 
             this.OuiRadio.AutoSize = true;
-            this.OuiRadio.Location = new System.Drawing.Point(180, 257);
+            this.OuiRadio.Location = new System.Drawing.Point(180, 258);
             this.OuiRadio.Name = "OuiRadio";
             this.OuiRadio.Size = new System.Drawing.Size(41, 17);
             this.OuiRadio.TabIndex = 10;
             this.OuiRadio.TabStop = true;
             this.OuiRadio.Text = "Oui";
             this.OuiRadio.UseVisualStyleBackColor = true;
+            this.OuiRadio.CheckedChanged += new System.EventHandler(this.OuiRadio_CheckedChanged);
             // 
             // NonRadio
             // 
@@ -142,6 +143,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.NonRadio.TabStop = true;
             this.NonRadio.Text = "Nom";
             this.NonRadio.UseVisualStyleBackColor = true;
+            this.NonRadio.CheckedChanged += new System.EventHandler(this.NonRadio_CheckedChanged);
             // 
             // label6
             // 
@@ -160,6 +162,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.button1.TabIndex = 13;
             this.button1.Text = "|<<";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -169,6 +172,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.button2.TabIndex = 14;
             this.button2.Text = "Vider";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -187,6 +191,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.button4.TabIndex = 15;
             this.button4.Text = "<<";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -206,6 +211,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.button6.TabIndex = 17;
             this.button6.Text = ">>";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -215,6 +221,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.button7.TabIndex = 19;
             this.button7.Text = ">>|";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -225,18 +232,18 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.button8.Text = "Enregistrer";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // EmpoyedataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(97, 316);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(586, 122);
-            this.dataGridView1.TabIndex = 21;
+            this.EmpoyedataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EmpoyedataGridView.Location = new System.Drawing.Point(26, 296);
+            this.EmpoyedataGridView.Name = "EmpoyedataGridView";
+            this.EmpoyedataGridView.Size = new System.Drawing.Size(762, 138);
+            this.EmpoyedataGridView.TabIndex = 21;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(374, 22);
+            this.label7.Location = new System.Drawing.Point(336, 22);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 13);
             this.label7.TabIndex = 22;
@@ -252,21 +259,21 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // 
             // DateEmbauche
             // 
-            this.DateEmbauche.FormattingEnabled = true;
-            this.DateEmbauche.Location = new System.Drawing.Point(184, 129);
+            this.DateEmbauche.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateEmbauche.Location = new System.Drawing.Point(180, 136);
             this.DateEmbauche.Name = "DateEmbauche";
-            this.DateEmbauche.Size = new System.Drawing.Size(96, 21);
+            this.DateEmbauche.Size = new System.Drawing.Size(100, 20);
             this.DateEmbauche.TabIndex = 24;
             // 
             // Gestion_Employe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 446);
             this.Controls.Add(this.DateEmbauche);
             this.Controls.Add(this.Division);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.EmpoyedataGridView);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
@@ -289,7 +296,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.Name = "Gestion_Employe";
             this.Text = "Gestion_Employe";
             this.Load += new System.EventHandler(this.Gestion_Employe_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpoyedataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,9 +323,9 @@ namespace C1_Ado_TDI201B_Boutissante_issam
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView EmpoyedataGridView;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox Division;
-        private System.Windows.Forms.ComboBox DateEmbauche;
+        private System.Windows.Forms.DateTimePicker DateEmbauche;
     }
 }

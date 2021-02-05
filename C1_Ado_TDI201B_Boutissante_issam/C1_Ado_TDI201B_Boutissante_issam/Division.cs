@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace C1_Ado_TDI201B_Boutissante_issam
@@ -19,66 +12,75 @@ namespace C1_Ado_TDI201B_Boutissante_issam
         public Division()
         {
             InitializeComponent();
-            command = new SqlCommand("select * from division",connection);
+        }
+
+        private void idDivision_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            command = new SqlCommand($"select nom,description from division where idDivision={idDivision.SelectedItem}",connection);
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    idDivision.Items.Add(reader["idDivision"]);
-                }
-                reader.Close();
-                connection.Close();
-            }catch(SqlException ex)
+                reader.Read();
+                Nom.Text = reader["nom"].ToString();
+                Description.Text = reader["description"].ToString();
+            }
+            catch(SqlException ex)
             {
                 MessageBox.Show("Error : "+ex.Message);
             }
-
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Vider_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand($"insert into division values({Nom.Text},{Description.Text});");
+            foreach (var control in this.Controls)
+                if (control is TextBox) ((TextBox)control).Clear();
+        }
+
+        private void Ajouter_Click(object sender, EventArgs e)
+        {
+            command = new SqlCommand($"insert into division values('{Nom.Text}','{Description.Text}');",connection);
             try
             {
                 connection.Open();
                 command.ExecuteNonQuery();
-                connection.Close();
-            }catch(SqlException ex)
-            {
-                MessageBox.Show("Error : "+ex.Message);
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            command = new SqlCommand($"delete Division where idDivision={idDivision.SelectedItem}");
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
+                MessageBox.Show("division a ete ajoute");
             }
             catch (SqlException ex)
             {
                 MessageBox.Show("Error : " + ex.Message);
             }
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        private void idDivision_SelectedIndexChanged(object sender, EventArgs e)
+        private void Supprimer_Click(object sender, EventArgs e)
         {
-            command = new SqlCommand($"select nom,description from division where idDivision={idDivision.SelectedItem}");
+
+        }
+
+        private void idDivision_Click(object sender, EventArgs e)
+        {
             try
             {
-                SqlDataReader reader= command.ExecuteReader();
-                reader.Read();
-                Nom.Text = reader["nom"].ToString();
-                Description.Text = reader["description"].ToString();
-
-            }catch(SqlException ex)
+                command = new SqlCommand("select idDivision from division;", connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read()) idDivision.Items.Add(reader["idDivision"]);
+            }
+            catch (SqlException ex)
             {
-                MessageBox.Show("Error : "+ex.Message);
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

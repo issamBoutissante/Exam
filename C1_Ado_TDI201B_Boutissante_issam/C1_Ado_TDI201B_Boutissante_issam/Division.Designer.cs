@@ -35,16 +35,16 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.Description = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Vider = new System.Windows.Forms.Button();
+            this.Ajouter = new System.Windows.Forms.Button();
+            this.Supprimer = new System.Windows.Forms.Button();
             this.idDivision = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 41);
+            this.label1.Location = new System.Drawing.Point(77, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // 
             // Nom
             // 
-            this.Nom.Location = new System.Drawing.Point(159, 80);
+            this.Nom.Location = new System.Drawing.Point(158, 96);
             this.Nom.Name = "Nom";
             this.Nom.Size = new System.Drawing.Size(100, 20);
             this.Nom.TabIndex = 3;
@@ -60,7 +60,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 80);
+            this.label2.Location = new System.Drawing.Point(77, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // 
             // Description
             // 
-            this.Description.Location = new System.Drawing.Point(159, 124);
+            this.Description.Location = new System.Drawing.Point(158, 140);
             this.Description.Name = "Description";
             this.Description.Size = new System.Drawing.Size(100, 20);
             this.Description.TabIndex = 5;
@@ -76,7 +76,7 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(78, 124);
+            this.label3.Location = new System.Drawing.Point(77, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 4;
@@ -91,47 +91,45 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.label4.TabIndex = 6;
             this.label4.Text = "Gestion Division";
             // 
-            // button1
+            // Vider
             // 
-            this.button1.Location = new System.Drawing.Point(504, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Vider";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Vider.Location = new System.Drawing.Point(504, 54);
+            this.Vider.Name = "Vider";
+            this.Vider.Size = new System.Drawing.Size(75, 23);
+            this.Vider.TabIndex = 7;
+            this.Vider.Text = "Vider";
+            this.Vider.UseVisualStyleBackColor = true;
+            this.Vider.Click += new System.EventHandler(this.Vider_Click);
             // 
-            // button2
+            // Ajouter
             // 
-            this.button2.Location = new System.Drawing.Point(504, 96);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Ajouter";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Ajouter.Location = new System.Drawing.Point(504, 96);
+            this.Ajouter.Name = "Ajouter";
+            this.Ajouter.Size = new System.Drawing.Size(75, 23);
+            this.Ajouter.TabIndex = 8;
+            this.Ajouter.Text = "Ajouter";
+            this.Ajouter.UseVisualStyleBackColor = true;
+            this.Ajouter.Click += new System.EventHandler(this.Ajouter_Click);
             // 
-            // button3
+            // Supprimer
             // 
-            this.button3.Location = new System.Drawing.Point(504, 140);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Supprimer";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Supprimer.Location = new System.Drawing.Point(504, 140);
+            this.Supprimer.Name = "Supprimer";
+            this.Supprimer.Size = new System.Drawing.Size(75, 23);
+            this.Supprimer.TabIndex = 9;
+            this.Supprimer.Text = "Supprimer";
+            this.Supprimer.UseVisualStyleBackColor = true;
+            this.Supprimer.Click += new System.EventHandler(this.Supprimer_Click);
             // 
             // idDivision
             // 
             this.idDivision.FormattingEnabled = true;
-            this.idDivision.Items.AddRange(new object[] {
-            "Desktop",
-            "Web",
-            "Mobile"});
-            this.idDivision.Location = new System.Drawing.Point(159, 41);
+            this.idDivision.Location = new System.Drawing.Point(158, 57);
             this.idDivision.Name = "idDivision";
             this.idDivision.Size = new System.Drawing.Size(100, 21);
             this.idDivision.TabIndex = 10;
             this.idDivision.SelectedIndexChanged += new System.EventHandler(this.idDivision_SelectedIndexChanged);
+            this.idDivision.Click += new System.EventHandler(this.idDivision_Click);
             // 
             // Division
             // 
@@ -139,9 +137,9 @@ namespace C1_Ado_TDI201B_Boutissante_issam
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.idDivision);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Supprimer);
+            this.Controls.Add(this.Ajouter);
+            this.Controls.Add(this.Vider);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.label3);
@@ -163,9 +161,9 @@ namespace C1_Ado_TDI201B_Boutissante_issam
         private System.Windows.Forms.TextBox Description;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Vider;
+        private System.Windows.Forms.Button Ajouter;
+        private System.Windows.Forms.Button Supprimer;
         private System.Windows.Forms.ComboBox idDivision;
     }
 }
